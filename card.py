@@ -46,3 +46,4 @@ class Card:
         """Штрафные очки за карту."""
         return self.number
 
+
