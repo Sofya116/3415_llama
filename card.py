@@ -48,3 +48,4 @@ class Card:
     def score(self):
         """Штрафные очки за карту."""
         return self.number
+
