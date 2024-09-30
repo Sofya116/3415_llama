@@ -10,7 +10,6 @@ class Card:
         self.number = number
 
     def __repr__(self):
-        # 'r3'
         return f'{self.number}'
 
     def __eq__(self, other):
@@ -19,7 +18,6 @@ class Card:
         return self.number == other.number
 
     def __lt__(self, other):
-        """ожидаемый порядок: r0 r1 .. r9 g0...g9 b0..b9 y0..y9"""
         if self.number == other.number or self.number == other.number+1 :
             return self.number < other.number
         ind_self = self.NUMBERS.index(self.number)
@@ -31,7 +29,6 @@ class Card:
 
     @staticmethod
     def load(text: str):
-        """From 'y3' to Card('y', 3)."""
         return Card(number=int(text[1]))
 
     def can_play_on(self, other: Self) -> bool:
