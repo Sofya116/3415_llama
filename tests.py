@@ -1,7 +1,6 @@
 import pytest
 from src.card import Card
 
-
 def test_init():
     c = Card(3)
     assert c.number == 3
