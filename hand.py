@@ -43,3 +43,4 @@ class Hand:
         for c in self.cards:
             res += c.score()
         return res
+

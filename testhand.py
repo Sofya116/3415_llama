@@ -41,3 +41,4 @@ def test_remove_card():
     c = Card.load('6')
     h.remove_card(c)
     assert repr(h) == '3 1 6 4'
+

@@ -78,3 +78,5 @@ def test_score():
 
     c = lamaCard(5)
     assert 5 == c.score()
+
+
