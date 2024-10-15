@@ -68,5 +68,5 @@ class lamaCard:
         else:
             return self.value
 
-
+Card
 

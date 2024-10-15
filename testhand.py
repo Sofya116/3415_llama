@@ -1,9 +1,9 @@
 import random
 
-from src.card import Card
+from src.card import lamaCard
 from src.hand import Hand
 
-cards = [Card(3), Card(1), Card(6)]
+cards = [lamaCard(3), lamaCard(1), lamaCard(6)]
 
 def test_init():
     d = Hand(cards=cards)
@@ -30,15 +30,15 @@ def test_score():
 
 def test_add_card():
     h = Hand.load('3 1 6')
-    h.add_card(Card.load('6'))
+    h.add_card(lamaCard.load('6'))
     assert repr(h) == '3 1 6 6'
 
-    h.add_card(Card.load('4'))
+    h.add_card(lamaCard.load('4'))
     assert repr(h) == '3 1 6 6 4'
 
 def test_remove_card():
     h = Hand.load('3 1 6 6 4')
-    c = Card.load('6')
+    c = lamaCard.load('6')
     h.remove_card(c)
     assert repr(h) == '3 1 6 4'
 
