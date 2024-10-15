@@ -12,7 +12,6 @@ class Hand:
     def __repr__(self):
         return self.save()
 
-
     def save(self) -> str:
         """Convert deck to string in '3 1 6' format."""
         scards = [c.save() for c in self.cards]         # ['3', '1', '6']
