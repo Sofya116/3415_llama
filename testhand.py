@@ -3,7 +3,6 @@ import random
 from src.card import lamaCard
 from src.hand import Hand
 
-
 cards = [lamaCard(3), lamaCard(1), lamaCard(6)]
 
 def test_init():

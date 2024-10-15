@@ -1,4 +1,5 @@
 from typing import Self
+
 class lamaCard:
     values = list(range(1, 7)) + [0]  # возможные значения карт (1-6 и 0 для "Ламы")
     lama = 0  # значение для карты "Лама"

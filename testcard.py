@@ -1,6 +1,5 @@
 from src.card import lamaCard
 import pytest
-
 def test_init():
     # тест инициализации карты
     c = lamaCard(3)
