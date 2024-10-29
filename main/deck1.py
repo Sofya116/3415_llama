@@ -1,8 +1,6 @@
-import random
 import typing
-
-from src.card import lamaCard
-
+import random
+from card import lamaCard
 
 class Deck:
     def __init__(self, cards: None | list[lamaCard]):
@@ -36,6 +34,5 @@ class Deck:
 
     def shuffle(self):
         random.shuffle(self.cards)
-
 
 
