@@ -66,3 +66,4 @@ def test_shuffle_2():
 
     deck.shuffle()
     assert deck.save() == "4 2 6"
+
