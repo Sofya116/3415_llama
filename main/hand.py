@@ -42,3 +42,4 @@ class Hand:
             res += c.score()
         return res
 
+
