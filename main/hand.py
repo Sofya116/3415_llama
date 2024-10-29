@@ -1,7 +1,6 @@
 import typing
 
-from src.card import lamaCard
-
+from card import lamaCard
 
 class Hand:
     def __init__(self, cards:  list[lamaCard] = []):
