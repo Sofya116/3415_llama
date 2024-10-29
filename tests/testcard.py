@@ -1,4 +1,4 @@
-from src.card import lamaCard
+from card import lamaCard
 import pytest
 def test_init():
     # тест инициализации карты
@@ -49,34 +49,39 @@ def test_validation():
         lamaCard('3')
 
 def test_play_on():
-    # тест метода can_play_on
-    c1 =lamaCard.load('1')
-    c2 =lamaCard.load('2')
-    c3 =lamaCard.load('3')
-    c4 =lamaCard.load('4')
+    c1 = lamaCard.load('1')
+    c2 = lamaCard.load('2')
+    c3 = lamaCard.load('3')
+    c4 = lamaCard.load('4')
+    c5 = lamaCard.load('0')
 
     assert c1.can_play_on(c1)
     assert c2.can_play_on(c1)
     assert c2.can_play_on(c2)
+    assert c5.can_play_on(c5)
+    assert c1.can_play_on(c5)
     assert not c3.can_play_on(c1)
     assert not c4.can_play_on(c1)
+    assert not c3.can_play_on(c5)
+    assert not c4.can_play_on(c5)
 
 def test_all_cards():
-    # тест метода all_cards
-    cards = lamaCard.all_cards(value=[5, 2, 6])
+    cards = lamaCard.all_cards(numbers=[5, 2, 6, 0])
+    # print(cards)
     expected_cards = [
         lamaCard.load('5'),
         lamaCard.load('2'),
         lamaCard.load('6'),
+        lamaCard.load('0'),
     ]
     assert cards == expected_cards
 
 def test_score():
-    # тест метода score
     c = lamaCard(6)
     assert 6 == c.score()
-
     c = lamaCard(5)
     assert 5 == c.score()
+    c = lamaCard(0)
+    assert 0 == c.score()
 
 
