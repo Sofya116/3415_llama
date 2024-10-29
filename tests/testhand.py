@@ -1,7 +1,7 @@
 import random
 
-from src.card import lamaCard
-from src.hand import Hand
+from card import lamaCard
+from hand import Hand
 
 cards = [lamaCard(3), lamaCard(1), lamaCard(6)]
 
@@ -41,4 +41,3 @@ def test_remove_card():
     c = lamaCard.load('6')
     h.remove_card(c)
     assert repr(h) == '3 1 6 4'
-
