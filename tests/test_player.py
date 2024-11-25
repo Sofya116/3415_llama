@@ -54,3 +54,4 @@ def test_hand_score():
 def test_llama_card_score():
     lama_card = lamaCard.load("Lama")
     assert lama_card.score() == 10  # Проверяем, что карта Лама дает 10 очков
+
