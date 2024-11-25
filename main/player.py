@@ -47,5 +47,3 @@ class Player:
             hand=Hand.load(data["hand"]),
             score=int(data["score"])
         )
-
-
