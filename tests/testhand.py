@@ -1,7 +1,5 @@
-import random
-
-from card import lamaCard
-from hand import Hand
+from main.card import lamaCard
+from main.hand import Hand
 
 cards = [lamaCard(3), lamaCard(1), lamaCard(6)]
 
@@ -22,11 +20,15 @@ def test_load():
     assert d == expected_deck
 
 def test_score():
-    h = Hand.load('3 1 6')
-    assert h.score() == 10
+    h = Hand.load('3 1 6 0')
+    assert h.score() == 10 + 3 + 1 + 6  # 10 очков за Ламу, 10 в сумме
 
     h = Hand.load('5 4')
     assert h.score() == 9
+
+    h = Hand.load('0')  # Проверка только карты Лама
+    assert h.score() == 10  # Убедитесь, что Лама дает 10 очков
+
 
 def test_add_card():
     h = Hand.load('3 1 6')

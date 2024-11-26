@@ -1,6 +1,6 @@
 import typing
 
-from card import lamaCard
+from main.card import lamaCard
 
 class Hand:
     def __init__(self, cards:  list[lamaCard] = []):
@@ -35,11 +35,8 @@ class Hand:
     def remove_card(self, card: lamaCard):
         self.cards.remove(card)
 
-    def score(self):
-        """Штрафные очки"""
-        res = 0
-        for c in self.cards:
-            res += c.score()
-        return res
+    def score(self) -> int:
+        """Возвращает сумму очков карт в руке."""
+        return sum(c.score(self.cards) for c in self.cards)
 
 
