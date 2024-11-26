@@ -55,3 +55,4 @@ def test_llama_card_score():
     lama_card = lamaCard.load("Lama")  # Загружаем карту Лама
     assert lama_card.score() == 10  # Проверяем, что карта Лама дает 10 очков
 
+
