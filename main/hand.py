@@ -40,3 +40,4 @@ class Hand:
         return sum(c.score(self.cards) for c in self.cards)
 
 
+
