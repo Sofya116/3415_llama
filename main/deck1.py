@@ -1,6 +1,6 @@
 import typing
 import random
-from card import lamaCard
+from main.card import lamaCard
 
 class Deck:
     def __init__(self, cards: None | list[lamaCard]):
@@ -33,6 +33,7 @@ class Deck:
         return self.cards.pop()
 
     def shuffle(self):
+        """Перемешивает карты в колоде."""
         random.shuffle(self.cards)
 
 

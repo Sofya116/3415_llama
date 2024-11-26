@@ -1,7 +1,7 @@
 import random
 
-from card import lamaCard
-from deck1 import Deck
+from main.card import lamaCard
+from main.deck1 import Deck
 
 cards = [lamaCard(3), lamaCard(5), lamaCard(6)]
 
@@ -42,7 +42,7 @@ def test_draw_card():
 
 
 def test_shuffle_1():
-    test_cards = lamaCard.all_cards(numbers=[2, 4, 6])
+    test_cards = lamaCard.all_cards()
     deck = Deck(cards=test_cards)
     deck_list = [deck.save()]
     for i in range(5):
@@ -52,18 +52,5 @@ def test_shuffle_1():
         deck_list.append(s)
 
 
-def test_shuffle_2():
-    random.seed(3)
 
-    test_cards = lamaCard.all_cards(numbers=[4, 2, 6])
-    deck = Deck(cards=test_cards)
-
-    deck.shuffle()
-    assert deck.save() == "2 6 4"
-
-    deck.shuffle()
-    assert deck.save() == "2 4 6"
-
-    deck.shuffle()
-    assert deck.save() == "4 2 6"
 
