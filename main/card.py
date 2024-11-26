@@ -1,8 +1,9 @@
 from typing import Self
 
 class lamaCard:
-    values = list(range(1, 7)) + [0]  # возможные значения карт (1-6 и 0 для "Ламы")
     lama = 0  # значение для карты "Лама"
+    values = list(range(1, 7)) + [lama]  # возможные значения карт (1-6 и 0 для "Ламы")
+
     def __init__(self, value: int):
         """value (int): Номинальное значение карты."""
         # инициализация карты с проверкой значения
@@ -50,8 +51,14 @@ class lamaCard:
     @staticmethod
     def all_cards():
         # Создает все карты
-        cards = [lamaCard(value=val) for val in range(1, 7)]
+        cards = []
         cards.extend([lamaCard(value=lamaCard.lama) for _ in range(8)])
+        cards.extend([lamaCard(value=1) for _ in range(8)])
+        cards.extend([lamaCard(value=2) for _ in range(8)])
+        cards.extend([lamaCard(value=3) for _ in range(8)])
+        cards.extend([lamaCard(value=4) for _ in range(8)])
+        cards.extend([lamaCard(value=5) for _ in range(8)])
+        cards.extend([lamaCard(value=6) for _ in range(8)])
         return cards
 
     def score(self, cards):
@@ -68,5 +75,4 @@ class lamaCard:
         else:
             return self.value
 
-Card
 

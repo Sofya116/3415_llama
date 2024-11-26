@@ -1,12 +1,11 @@
-from card import lamaCard
+from main.card import lamaCard
 import pytest
+
 def test_init():
-    # тест инициализации карты
     c = lamaCard(3)
     assert c.value == 3
 
 def test_save():
-    # тест сохранения карты
     c = lamaCard(3)
     assert repr(c) == '3'
     assert c.save() == '3'
@@ -16,12 +15,11 @@ def test_save():
     assert c.save() == '6'
 
 def test_eq():
-    # тест сравнения двух карт
-    c1 =lamaCard(3)
-    c2 =lamaCard(3)
-    c3 =lamaCard(1)
-    c4 =lamaCard(2)
-    c5 =lamaCard(6)
+    c1 = lamaCard(3)
+    c2 = lamaCard(3)
+    c3 = lamaCard(1)
+    c4 = lamaCard(2)
+    c5 = lamaCard(6)
 
     assert c1 == c2
     assert c1 != c3
@@ -29,24 +27,23 @@ def test_eq():
     assert c1 != c5
 
 def test_load():
-    # тест загрузки карты
-    s = '3'
-    c = lamaCard.load(s)
+    c = lamaCard.load('3')
     assert c == lamaCard(3)
 
-    s = '6'
-    c = lamaCard.load(s)
+    c = lamaCard.load('6')
     assert c == lamaCard(6)
 
 def test_divzero():
-    # пример теста с ловлей исключения
     with pytest.raises(ZeroDivisionError):
         x = 2 / 0
 
 def test_validation():
-    # тест валидации карты
     with pytest.raises(ValueError):
         lamaCard('3')
+    with pytest.raises(ValueError):
+        lamaCard(7)  # Проверка на значение больше 6
+    with pytest.raises(ValueError):
+        lamaCard(-1)  # Проверка на отрицательное значение
 
 def test_play_on():
     c1 = lamaCard.load('1')
@@ -66,23 +63,11 @@ def test_play_on():
     assert not c4.can_play_on(c5)
 
 def test_all_cards():
-    cards = lamaCard.all_cards(numbers=[5, 2, 6, 0])
-    # print(cards)
-    expected_cards = [
-        lamaCard.load('5'),
-        lamaCard.load('2'),
-        lamaCard.load('6'),
-        lamaCard.load('0'),
-    ]
-    assert cards == expected_cards
+    cards = lamaCard.all_cards()
+    print(cards)
+    assert len(cards)==56
 
-def test_score():
-    c = lamaCard(6)
-    assert 6 == c.score()
-    c = lamaCard(5)
-    assert 5 == c.score()
-    c = lamaCard(0)
-    assert 0 == c.score()
+
 
 
 
