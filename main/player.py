@@ -50,3 +50,4 @@ class Player:
             score=int(data["score"])
         )
 
+
