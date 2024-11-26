@@ -120,3 +120,4 @@ def test_play_card():
     game.play_card(lamaCard.load("1"))
     assert game.current_player().hand == "4 0"
     assert game.top == "1"
+
