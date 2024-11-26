@@ -1,6 +1,6 @@
-from player import Player  # Импортируйте класс Player
-from deck1 import Deck  # Импортируйте класс Deck
-from card import lamaCard  # Импортируйте класс LlamaCard
+from main.player import Player  # Импортируйте класс Player
+from main.deck1 import Deck  # Импортируйте класс Deck
+from main.card import lamaCard  # Импортируйте класс LlamaCard
 
 class GameState:
     def __init__(
@@ -61,13 +61,10 @@ class GameState:
         self.current_player().hand.add_card(card)
         return card
 
-    def play_card(self, card: lamaCard): #Метод, который позволяет текущему игроку сыграть карту
+    def play_card(self, card: lamaCard):
         """Карта card от текущего игрока переходит в top."""
-        if card.can_play_on(self.top):  # Проверяем, можно ли сыграть карту
-            self.current_player().hand.remove_card(card)
-            self.top = card
-        else:
-            print(f"{card} нельзя сыграть на {self.top}.")
+        self.current_player().hand.remove_card(card)
+        self.top = card
 
     def deal_cards(self, num_cards: int = 6): #Метод для раздачи карт игрокам
         """Раздача карт игрокам."""
@@ -89,7 +86,6 @@ class GameState:
         print("Конец раунда. Подсчет очков:")
         for name, score in scores.items():
             print(f"{name}: {score} очков")
-        # Здесь можно добавить логику для определения победителя
         for player in self.players:
             player.hand.clear()  # Очистка рук игроков
 
@@ -136,3 +132,4 @@ class GameState:
                 self.end_round()
                 break
             self.next_player()
+

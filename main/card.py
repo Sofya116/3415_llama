@@ -16,8 +16,8 @@ class lamaCard:
 
     def __eq__(self, other):
         # Сравнивает карты
-        if isinstance(other, int):
-            other = lamaCard(value=other)
+        if isinstance(other, str):
+            other = lamaCard.load(other)
         return self.value == other.value
 
     def __lt__(self, other):
@@ -74,3 +74,5 @@ class lamaCard:
             return 0
         else:
             return self.value
+
+

@@ -1,11 +1,11 @@
-from card import lamaCard
-from deck1 import Deck
-from game_state import GameState
-from player import Player
+from main.card import lamaCard
+from main.deck1 import Deck
+from main.game_state import GameState
+from main.player import Player
 
 # Данные для тестирования, представляющие состояние игры
 data = {
-    "top": "3",  # Текущая верхняя карта
+    "top": "2",  # Текущая верхняя карта
     "current_player_index": 1,  # Индекс текущего игрока (Bob)
     "deck": "2 6 0",  # Карты в колоде
     "players": [  # Информация об игроках
@@ -26,27 +26,27 @@ def test_init():
     """Тестируем инициализацию состояния игры."""
     players = [alex, bob, charley]
     game = GameState(
-        players=players, deck=full_deck, current_player=1, top=lamaCard.load("3")
+        players=players, deck=full_deck, current_player=1, top=lamaCard.load("2")
     )
     assert game.players == players
     assert game.deck == full_deck
     assert game.current_player() == bob
-    assert str(game.top) == "3"
+    assert str(game.top) == "2"
 
 
 def test_current_player():
     """Тестируем получение текущего игрока."""
     players = [alex, bob, charley]
-    game = GameState(players=players, deck=full_deck, top=lamaCard.load("3"))
+    game = GameState(players=players, deck=full_deck, top=lamaCard.load("2"))
     assert game.current_player() == alex
 
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("3"), current_player=1
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=1
     )
     assert game.current_player() == bob
 
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("3"), current_player=2
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=2
     )
     assert game.current_player() == charley
 
@@ -54,10 +54,10 @@ def test_current_player():
 def test_eq():
     """Тестируем оператор равенства для состояния игры."""
     players = [alex, bob, charley]
-    game1 = GameState(players=players, deck=full_deck, top=lamaCard.load("3"))
-    game1_copy = GameState(players=players.copy(), deck=Deck(game1.deck.cards.copy()), top=lamaCard.load("3"))
-    game2 = GameState(players=players.copy(), deck=Deck(None), top=lamaCard.load("3"))
-    game3 = GameState(players=players, deck=Deck.load("2 6 0"), top=lamaCard.load("3"))
+    game1 = GameState(players=players, deck=full_deck, top=lamaCard.load("2"))
+    game1_copy = GameState(players=players.copy(), deck=Deck(game1.deck.cards.copy()), top=lamaCard.load("2"))
+    game2 = GameState(players=players.copy(), deck=Deck(None), top=lamaCard.load("2"))
+    game3 = GameState(players=players, deck=Deck.load("2 6 0"), top=lamaCard.load("2"))
     assert game1 == game1_copy
     assert game1 != game2
     assert game1 != game3
@@ -111,11 +111,11 @@ def test_play_card():
     """Тестируем функцию игры картой."""
     players = [alex, bob, charley]
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("3"), current_player=2
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=2
     )
 
     assert game.current_player().hand == "4 1 0"
-    assert game.top == "3"
+    assert game.top == "2"
 
     game.play_card(lamaCard.load("1"))
     assert game.current_player().hand == "4 0"
