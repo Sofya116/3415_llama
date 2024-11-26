@@ -1,7 +1,7 @@
 import hashlib
 import json
 import typing
-from hand import Hand
+from main.hand import Hand
 
 class Player:
     # Инициализация игрока
