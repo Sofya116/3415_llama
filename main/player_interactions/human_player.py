@@ -16,3 +16,9 @@ class Human(PlayerInteraction):
         # Реализация выбора играть или не играть
         pass
 
+    @classmethod
+    def choose_quit(
+            cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None
+    ) -> bool:
+        """True - игрок выбирает закончить этот раунд, False - продолжает играть."""
+        return False

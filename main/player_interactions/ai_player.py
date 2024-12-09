@@ -7,6 +7,13 @@ from main.player_interaction import PlayerInteraction
 
 class Bot(PlayerInteraction):
     @classmethod
+    def choose_quit(
+            cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None
+    ) -> bool:
+        """True - игрок выбирает закончить этот раунд, False - продолжает играть."""
+        return True
+
+    @classmethod
     def choose_card(cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None) -> lamaCard:
         # Реализация выбора карты ботом
         pass

@@ -12,6 +12,7 @@ class Player:
         self.name = name
         self.hand = hand
         self.score = score
+        self.quit = False    # игрок перешел в quit режим и пропускает ходы
 
     def __str__(self):
         return f"{self.name}({self.score}): {self.hand}"

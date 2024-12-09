@@ -8,6 +8,15 @@ from main.player import Player
 class PlayerInteraction(ABC):
     @classmethod
     @abstractmethod
+    def choose_quit(
+            cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None
+    ) -> bool:
+        """True - игрок выбирает закончить этот раунд, False - продолжает играть."""
+        pass
+
+
+    @classmethod
+    @abstractmethod
     def choose_card(
             cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None
     ) -> lamaCard:
