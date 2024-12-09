@@ -64,8 +64,8 @@ def test_play_on():
 
 def test_all_cards():
     cards = lamaCard.all_cards()
-    print(cards)
     assert len(cards)==56
+
 
 
 

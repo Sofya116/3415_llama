@@ -1,7 +1,7 @@
 import random
 
 from main.card import lamaCard
-from main.deck1 import Deck
+from main.deck import Deck
 
 cards = [lamaCard(3), lamaCard(5), lamaCard(6)]
 

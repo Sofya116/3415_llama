@@ -1,5 +1,5 @@
 from main.card import lamaCard
-from main.deck1 import Deck
+from main.deck import Deck
 from main.game_state import GameState
 from main.player import Player
 
