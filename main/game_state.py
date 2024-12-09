@@ -54,6 +54,13 @@ class GameState:
         self.current_player().hand.add_card(card)
         return card
 
+    def is_round_over(self) -> bool:
+        if any(len(player.hand.cards) == 0 for player in self.players):
+            return True
+
+
+
+'''
     def play_card(self, card: lamaCard):
         self.current_player().hand.remove_card(card)
         self.top = card
@@ -127,7 +134,7 @@ class GameState:
                 self.end_round()
                 break
             self.next_player()
-
+'''
 
 
 
