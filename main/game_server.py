@@ -7,8 +7,7 @@ from main.game_state import GameState
 from main.hand import Hand
 from main.player import Player
 from main.player_interaction import PlayerInteraction
-# from main.player_interactions.__init__ import all_player_types
-from  main.player_interactions import all_player_types
+from main.player_interactions import all_player_types
 import enum
 from main.card import lamaCard
 
@@ -63,8 +62,9 @@ class GameServer:
                 for player_data in data['players']:
                     name = player_data['name']
                     kind = player_data['kind']
-                    kind_class = next((player_type for player_type in all_player_types if player_type.__name__ == kind),
-                                      None)
+                    # kind_class = [player_type for player_type in all_player_types if player_type.__name__ == kind][0]
+                    kind_class = next((player_type for player_type in all_player_types if player_type.__name__ == kind), None)
+                    # player = [player for player in players if player.name == name][0]
                     player = next(player for player in players if player.name == name)  # Находим объект Player по имени
                     player_types[player] = kind_class
 
