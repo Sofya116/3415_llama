@@ -57,7 +57,9 @@ class GameState:
     def is_round_over(self) -> bool:
         if any(len(player.hand.cards) == 0 for player in self.players):
             return True
-
+        if all (player.quit for player in self.players):
+            return True
+        return False
 
 
 '''

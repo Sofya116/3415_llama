@@ -15,7 +15,7 @@ class Player:
         self.quit = False    # игрок перешел в quit режим и пропускает ходы
 
     def __str__(self):
-        return f"{self.name}({self.score}): {self.hand}"
+        return f"{self.name}{'(Q)' if self.quit else ''}({self.score}): {self.hand}"
 
     def __eq__(self, other: typing.Union['Player', str, dict]):
         if isinstance(other, str):
