@@ -7,3 +7,4 @@ from main.player_interactions.human_player import Human
 all_player_types = [Bot, Human]
 
 __all__ = ['Bot', 'Human', 'all_player_types']
+

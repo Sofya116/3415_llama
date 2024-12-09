@@ -34,3 +34,4 @@ class PlayerInteraction(ABC):
         Сообщает, что игрок сыграл карту.
         """
         pass
+

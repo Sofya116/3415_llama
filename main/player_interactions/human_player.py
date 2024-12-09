@@ -15,3 +15,4 @@ class Human(PlayerInteraction):
     def choose_to_play(cls, top: lamaCard, drawn: lamaCard) -> bool:
         # Реализация выбора играть или не играть
         pass
+
