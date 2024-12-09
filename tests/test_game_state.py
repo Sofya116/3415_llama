@@ -26,7 +26,7 @@ def test_init():
     """Тестируем инициализацию состояния игры."""
     players = [alex, bob, charley]
     game = GameState(
-        players=players, deck=full_deck, current_player=1, top=lamaCard.load("2")
+        players=players, deck=full_deck, current_player_index=1, top=lamaCard.load("2")
     )
     assert game.players == players
     assert game.deck == full_deck
@@ -41,12 +41,12 @@ def test_current_player():
     assert game.current_player() == alex
 
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=1
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player_index=1
     )
     assert game.current_player() == bob
 
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=2
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player_index=2
     )
     assert game.current_player() == charley
 
@@ -70,7 +70,7 @@ def test_save():
         players=players,
         deck=Deck.load(data["deck"]),
         top=lamaCard.load(data["top"]),
-        current_player=1,
+        current_player_index=1,
     )
     assert game.save() == data
 
@@ -111,7 +111,7 @@ def test_play_card():
     """Тестируем функцию игры картой."""
     players = [alex, bob, charley]
     game = GameState(
-        players=players, deck=full_deck, top=lamaCard.load("2"), current_player=2
+        players=players, deck=full_deck, top=lamaCard.load("2"), current_player_index=2
     )
 
     assert game.current_player().hand == "4 1 0"
@@ -120,5 +120,7 @@ def test_play_card():
     game.play_card(lamaCard.load("1"))
     assert game.current_player().hand == "4 0"
     assert game.top == "1"
+
+
 
 
