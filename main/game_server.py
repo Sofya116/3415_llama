@@ -147,6 +147,13 @@ class GameServer:
         return GamePhase.CHOOSE_CARD
 
     def draw_extra_phase(self) -> GamePhase:
+        # игрок может решить, что больше он не играет в этом раунде
+        current_player = self.game_state.current_player()
+        quit = self.player_types[current_player].choose_quit(current_player.hand, self.game_state.top)
+        if quit:
+            current_player.quit = True
+            return GamePhase.NEXT_PLAYER
+
         drawn_card = self.game_state.draw_card()
 
         if drawn_card is None:
