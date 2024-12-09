@@ -7,7 +7,8 @@ from main.game_state import GameState
 from main.hand import Hand
 from main.player import Player
 from main.player_interaction import PlayerInteraction
-from main.player_interactions.init import all_player_types
+# from main.player_interactions.__init__ import all_player_types
+from  main.player_interactions import all_player_types
 import enum
 from main.card import lamaCard
 
@@ -119,7 +120,7 @@ class GameServer:
 
     def declare_winner_phase(self) -> GamePhase:
         print(f"{self.game_state.current_player()} победил!")
-        self.save()  # Сохраняем состояние игры перед завершением
+        # self.save()  # Сохраняем состояние игры перед завершением
         return GamePhase.GAME_END
 
     def run(self):
@@ -137,7 +138,7 @@ class GameServer:
             if self.move_count >= self.MAX_MOVES:  # Проверяем лимит ходов
                 print("Достигнут лимит ходов. Игра окончена.")
                 return GamePhase.GAME_END
-            self.save()
+            # self.save()
 
     def next_player_phase(self) -> GamePhase:
         if self.game_state.is_round_over():
@@ -149,8 +150,8 @@ class GameServer:
     def draw_extra_phase(self) -> GamePhase:
         # игрок может решить, что больше он не играет в этом раунде
         current_player = self.game_state.current_player()
-        quit = self.player_types[current_player].choose_quit(current_player.hand, self.game_state.top)
-        if quit:
+        print(f"Игроку {current_player} надо брать карту или quit.")
+        if self.player_types[current_player].choose_quit(current_player.hand, self.game_state.top):
             current_player.quit = True
             return GamePhase.NEXT_PLAYER
 

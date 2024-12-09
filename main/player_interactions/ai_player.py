@@ -11,6 +11,7 @@ class Bot(PlayerInteraction):
             cls, hand: Hand, top: lamaCard, hand_counts: list[int] | None = None
     ) -> bool:
         """True - игрок выбирает закончить этот раунд, False - продолжает играть."""
+        print('Bot choose_quit -> TRUE!!!!')
         return True
 
     @classmethod
