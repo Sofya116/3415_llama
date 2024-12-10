@@ -144,6 +144,7 @@ class GameServer:
         if self.game_state.is_round_over():
             return GamePhase.DECLARE_WINNER
         self.game_state.next_player()
+        print('')
         print(f"=== очередь игрока: {self.game_state.current_player()}")
         return GamePhase.CHOOSE_CARD
 
